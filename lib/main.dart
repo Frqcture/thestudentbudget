@@ -66,29 +66,51 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+    return DefaultTabController(length: 3,
+     child: Scaffold(
       appBar: AppBar(
         title: const Text('TheStudentBudget'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed:  _button1Press, 
-                      child: const Text('Button1')
-                      ) //ElevatedButton
-                  ) //Expanded
-                ] //Widget
-              ) //Row
-            ) //Container
+        bottom: const TabBar(
+          tabs: <Widget>[
+            Tab(
+              icon: Icon(Icons.cloud_outlined),
+            ),
+            Tab(
+              icon: Icon(Icons.beach_access_sharp),
+            ),
+            Tab(
+              icon: Icon(Icons.brightness_5_sharp),
+            ),
           ],
         ),
       ),
+      body: TabBarView(
+        children: <Widget>[
+          Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.all(50.0),
+                  child: const Text(
+                    '£1000',
+                    style: TextStyle(
+                      fontWeight:FontWeight.bold,
+                      fontSize: 30,
+                    ),
+                ),
+            )
+            ]
+          ),
+          ),
+          const Center(
+            child: Text('Tab 2')
+          ),
+          const Center(
+            child: Text('Tab 3'),
+          )
+        ],
+      ),
+     )
     );
   }
 }
