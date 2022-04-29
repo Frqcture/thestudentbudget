@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -49,8 +51,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _text = 'Opened';
+
   void _button1Press() {
-    _text = 'New Mesage';
+    setState(() {
+      _text = 'Button1Screen';
+    });
   }
 
   @override
@@ -68,14 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            child: Container(
+          children: <Widget>[
+            Container(
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Expanded(
                     child: ElevatedButton(
-                      onPressed:  _button1Press(), 
-                      child: Text('Button1')
+                      onPressed:  _button1Press, 
+                      child: const Text('Button1')
                       ) //ElevatedButton
                   ) //Expanded
                 ] //Widget
