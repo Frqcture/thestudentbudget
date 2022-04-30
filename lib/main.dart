@@ -1,3 +1,5 @@
+import 'dart:ffi';
+import 'dart:io';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -61,19 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
      child: Scaffold(
       appBar: AppBar(
         title: const Text('TheStudentBudget'),
-        bottom: const TabBar(
-          tabs: <Widget>[
-            Tab(
-              icon: Icon(Icons.cloud_outlined),
-            ),
-            Tab(
-              icon: Icon(Icons.beach_access_sharp),
-            ),
-            Tab(
-              icon: Icon(Icons.brightness_5_sharp),
-            ),
-          ],
-        ),
       ),
       body: TabBarView(
         children: <Widget>[
@@ -107,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const _DemoBottomAppBar(
+      bottomNavigationBar: const MainBottomAppBar(
         fabLocation: FloatingActionButtonLocation.centerDocked,
         shape: CircularNotchedRectangle(),
       )
@@ -116,8 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class _DemoBottomAppBar extends StatelessWidget {
-  const _DemoBottomAppBar({
+class MainBottomAppBar extends StatelessWidget {
+   // ignore: use_key_in_widget_constructors
+   const MainBottomAppBar({
     this.fabLocation = FloatingActionButtonLocation.endDocked,
     this.shape = const CircularNotchedRectangle(),
   });
@@ -140,25 +130,45 @@ class _DemoBottomAppBar extends StatelessWidget {
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
         child: Row(
           children: <Widget>[
-            IconButton(
-              tooltip: 'Open navigation menu',
-              icon: const Icon(Icons.menu),
-              onPressed: () {},
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.abc),
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.check_circle),
+                    ),
+                  )
+                ]
+              )
             ),
-            if (centerLocations.contains(fabLocation)) const Spacer(),
-            IconButton(
-              tooltip: 'Search',
-              icon: const Icon(Icons.search),
-              onPressed: () {},
-            ),
-            IconButton(
-              tooltip: 'Favorite',
-              icon: const Icon(Icons.favorite),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
+            Expanded(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.face),
+                    ),
+                  ),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.gamepad),
+                    ),
+                  )
+                ]
+              )
+            )
+          ]
+        )
+      )
     );
   }
 }
