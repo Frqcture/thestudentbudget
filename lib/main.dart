@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,13 +48,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _text = 'Opened';
-
-  void _button1Press() {
-    setState(() {
-      _text = 'Button1Screen';
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +101,64 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-     )
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Create',
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: const _DemoBottomAppBar(
+        fabLocation: FloatingActionButtonLocation.centerDocked,
+        shape: CircularNotchedRectangle(),
+      )
+      ),
+    );
+  }
+}
+
+class _DemoBottomAppBar extends StatelessWidget {
+  const _DemoBottomAppBar({
+    this.fabLocation = FloatingActionButtonLocation.endDocked,
+    this.shape = const CircularNotchedRectangle(),
+  });
+
+  final FloatingActionButtonLocation fabLocation;
+  final NotchedShape? shape;
+
+  static final List<FloatingActionButtonLocation> centerLocations =
+      <FloatingActionButtonLocation>[
+    FloatingActionButtonLocation.centerDocked,
+    FloatingActionButtonLocation.centerFloat,
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      shape: shape,
+      color: Colors.blue,
+      child: IconTheme(
+        data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              tooltip: 'Open navigation menu',
+              icon: const Icon(Icons.menu),
+              onPressed: () {},
+            ),
+            if (centerLocations.contains(fabLocation)) const Spacer(),
+            IconButton(
+              tooltip: 'Search',
+              icon: const Icon(Icons.search),
+              onPressed: () {},
+            ),
+            IconButton(
+              tooltip: 'Favorite',
+              icon: const Icon(Icons.favorite),
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
