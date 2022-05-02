@@ -9,12 +9,51 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+
   int userBalance = 1000;
 
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text('£$userBalance'),
+        Container( 
+          margin: const EdgeInsets.fromLTRB(0, 70, 0, 50),
+          child: Column(
+            children: <Widget>[ 
+              Text(
+                '£$userBalance',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 50),
+              ),
+            ]
+          )
+        ),
+        Container(
+          margin: const EdgeInsets.all(30),
+          child: Column(
+            children: <Widget>[
+               Row(
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 30, 10),
+                    child: Expanded(
+                      child: Text('Balance remaining: \n £$userBalance'),
+                    )
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
+                    child: Expanded(
+                      child: Text('Total Balance: \n £2500',),
+                    )
+                  ),
+                ],
+              ),
+              const LinearProgressIndicator(
+                minHeight: 7,
+                value: 0.7,
+              )
+            ]),
+        ),
       ],
     );
   }
