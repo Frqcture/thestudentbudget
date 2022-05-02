@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  final tabs = ['Home', 'Profile', 'Help', 'Settings'];
+  final tabs = [HomeScreen()];
   int selectedScreen = 0;
 
   @override
@@ -67,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('TheStudentBudget'),
       ),
       body: Center(
-        child: Text('$selectedScreen'),
+        child: tabs[selectedScreen],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
