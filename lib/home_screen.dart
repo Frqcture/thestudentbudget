@@ -37,13 +37,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 0, 30, 10),
                     child: Expanded(
-                      child: Text('Balance remaining: \n £$userBalance'),
+                      child: Column(children: <Widget>[
+                        const Text('Left to Spend', textAlign: TextAlign.left,),
+                        Text('$userBalance', textAlign: TextAlign.left,)
+                      ],)
                     )
                   ),
                   Container(
                     padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
                     child: Expanded(
-                      child: Text('Total Balance: \n £2500',),
+                      child: Column(children: const <Widget>[
+                        Text('Total for Month'),
+                        Text('£2500')
+                      ],)
                     )
                   ),
                 ],
