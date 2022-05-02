@@ -1,5 +1,5 @@
-import 'dart:ffi';
-import 'dart:io';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -51,6 +51,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  final tabs = ['Home', 'Profile', 'Help', 'Settings'];
+  int selectedScreen = 0;
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -59,36 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return DefaultTabController(length: 3,
-     child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text('TheStudentBudget'),
       ),
-      body: TabBarView(
-        children: <Widget>[
-          Center(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.all(50.0),
-                  child: const Text(
-                    '£1000',
-                    style: TextStyle(
-                      fontWeight:FontWeight.bold,
-                      fontSize: 30,
-                    ),
-                ),
-            )
-            ]
-          ),
-          ),
-          const Center(
-            child: Text('Tab 2')
-          ),
-          const Center(
-            child: Text('Tab 3'),
-          )
-        ],
+      body: Center(
+        child: Text('$selectedScreen'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -96,35 +75,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const MainBottomAppBar(
-        fabLocation: FloatingActionButtonLocation.centerDocked,
-        shape: CircularNotchedRectangle(),
-      )
-      ),
+      bottomNavigationBar: _buildBottomAppBar()
     );
   }
-}
 
-class MainBottomAppBar extends StatelessWidget {
-   // ignore: use_key_in_widget_constructors
-   const MainBottomAppBar({
-    this.fabLocation = FloatingActionButtonLocation.endDocked,
-    this.shape = const CircularNotchedRectangle(),
-  });
-
-  final FloatingActionButtonLocation fabLocation;
-  final NotchedShape? shape;
-
-  static final List<FloatingActionButtonLocation> centerLocations =
-      <FloatingActionButtonLocation>[
-    FloatingActionButtonLocation.centerDocked,
-    FloatingActionButtonLocation.centerFloat,
-  ];
-
-  @override
-  Widget build(BuildContext context) {
+  _buildBottomAppBar() {
     return BottomAppBar(
-      shape: shape,
+      shape: const CircularNotchedRectangle(),
       color: Colors.blue,
       child: IconTheme(
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
@@ -135,13 +92,21 @@ class MainBottomAppBar extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selectedScreen = 0;
+                        });
+                      },
                       icon: const Icon(Icons.abc),
                     ),
                   ),
                   Expanded(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selectedScreen = 1;
+                        });
+                      },
                       icon: const Icon(Icons.check_circle),
                     ),
                   )
@@ -153,13 +118,21 @@ class MainBottomAppBar extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selectedScreen = 2;
+                        });
+                      },
                       icon: const Icon(Icons.face),
                     ),
                   ),
                   Expanded(
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selectedScreen = 3;
+                        });
+                      },
                       icon: const Icon(Icons.gamepad),
                     ),
                   )
