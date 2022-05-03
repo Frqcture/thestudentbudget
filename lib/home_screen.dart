@@ -29,40 +29,42 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ),
         Container(
-          margin: const EdgeInsets.all(30),
-          child: Column(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            //color: Colors.grey,
+            border: Border.all(color: Colors.grey)
+            ),
+          margin: const EdgeInsets.all(20),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Column(
             children: <Widget>[
-              Container(
-                child: Row(
+                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    child: Expanded(
                       child: Column(children: <Widget>[
-                        const Text('Left to Spend:'),
+                        const Text('Left to Spend:',),
                         Text('£$userBalance',)
+
                       ],)
-                    )
                   ),
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    alignment: Alignment.topRight,
-                    child: Expanded(
                       child: Column(children: const <Widget>[
                         Text('Total for Month'),
                         Text('£2500')
                       ],)
-                    )
-                  ),
+                  )
                 ],
-              ),
-              ),
+                ),
               const LinearProgressIndicator(
                 minHeight: 7,
                 value: 0.7,
               )
             ]),
+        ),
         ),
       ],
     );
