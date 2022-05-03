@@ -32,19 +32,22 @@ class _HomeScreenState extends State<HomeScreen> {
           margin: const EdgeInsets.all(30),
           child: Column(
             children: <Widget>[
-               Row(
+              Container(
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 30, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                     child: Expanded(
                       child: Column(children: <Widget>[
-                        const Text('Left to Spend', textAlign: TextAlign.left,),
-                        Text('$userBalance', textAlign: TextAlign.left,)
+                        const Text('Left to Spend:'),
+                        Text('£$userBalance',)
                       ],)
                     )
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(30, 0, 0, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                    alignment: Alignment.topRight,
                     child: Expanded(
                       child: Column(children: const <Widget>[
                         Text('Total for Month'),
@@ -53,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ),
                 ],
+              ),
               ),
               const LinearProgressIndicator(
                 minHeight: 7,
