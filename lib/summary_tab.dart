@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'payment_info_summaries.dart';
 
 class SummaryTab extends StatefulWidget {
   SummaryTab({Key? key}) : super(key: key);
@@ -11,7 +12,12 @@ class _SummaryTabState extends State<SummaryTab> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+      decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(color: const Color.fromARGB(255, 224, 224, 224))
+            ),
+      margin: const EdgeInsets.all(20),
       child: Column(children: <Widget>[
         Container(
           child: Row(
@@ -26,11 +32,15 @@ class _SummaryTabState extends State<SummaryTab> {
                 alignment: Alignment.centerLeft,
                 child: const  Text(
                   'TITLE',
-                  style: TextStyle(fontSize: 20,),),
+                  style: TextStyle(fontSize: 20,)
+                ),
               ),
             ],
           ),
-        )
+        ),
+        PaymentInfoSummary(),
+        PaymentInfoSummary(),
+        PaymentInfoSummary(),
       ]),
     );
   }

@@ -32,10 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
         Container(
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
-            //color: Colors.grey,
-            border: Border.all(color: Colors.grey)
+            border: Border.all(color: const Color.fromARGB(255, 224, 224, 224))
             ),
-          margin: const EdgeInsets.all(20),
+          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Container(
             padding: const EdgeInsets.all(10),
             child: Column(
