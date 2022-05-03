@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
 
 class PaymentInfoSummary extends StatefulWidget {
-  PaymentInfoSummary({Key? key}) : super(key: key);
+  PaymentInfoSummary({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+
+  final String paidTo;
+  final double amount;
 
   @override
   State<PaymentInfoSummary> createState() => _PaymentInfoSummaryState();
 }
 
 class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
+  // String paidTo;
+  // double amount;
+
+  // _PaymentInfoSummaryState(this.paidTo, this.amount);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
           child: Column(children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
-                  child: const Text(
-                    'PAID TO',
+                  child: Text(
+                    widget.paidTo,
                     style: TextStyle(fontSize: 18),
                     ),
                 ),
                 Container(
-                  child: const Text(
-                    'amount',
+                  child: Text(
+                    widget.amount.toString(),
                     style: TextStyle(fontSize: 15)),
                 )
               ],

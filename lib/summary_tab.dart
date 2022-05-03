@@ -17,7 +17,7 @@ class _SummaryTabState extends State<SummaryTab> {
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             border: Border.all(color: const Color.fromARGB(255, 224, 224, 224))
             ),
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
       child: Column(children: <Widget>[
         Container(
           child: Row(
@@ -38,9 +38,9 @@ class _SummaryTabState extends State<SummaryTab> {
             ],
           ),
         ),
-        PaymentInfoSummary(),
-        PaymentInfoSummary(),
-        PaymentInfoSummary(),
+        PaymentInfoSummary(paidTo: 'JoeMama', amount: 420.69,),
+        PaymentInfoSummary(paidTo: 'James Moore', amount: 44.00,),
+        PaymentInfoSummary(paidTo: 'Paige Robinson', amount: 5000.53),
       ]),
     );
   }

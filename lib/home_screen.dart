@@ -14,7 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int userBalance = 1000;
 
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+    children: <Widget>[
+      Column(
       children: <Widget>[
         Container( 
           margin: const EdgeInsets.fromLTRB(0, 70, 0, 50),
@@ -34,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             border: Border.all(color: const Color.fromARGB(255, 224, 224, 224))
             ),
-          margin: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
           child: Container(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -66,8 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         ),
         ),
-        SummaryTab()
+        SummaryTab(),
+        SummaryTab(),
+        SummaryTab(),
       ],
-    );
+    )
+    ]);
   }
 }
