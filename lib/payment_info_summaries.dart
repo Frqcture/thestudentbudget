@@ -18,26 +18,26 @@ class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-          child: Column(children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    widget.paidTo,
-                    style: TextStyle(fontSize: 18),
-                    ),
-                ),
-                Container(
-                  child: Text(
-                    '£'+widget.amount.toString(),
-                    style: TextStyle(fontSize: 15)),
-                )
-              ],
-            )
-          ]),
-        );
+      return Container(
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+            child: Column(children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: Text(
+                      widget.paidTo,
+                      style: TextStyle(fontSize: 18),
+                      ),
+                  ),
+                  Container(
+                    child: Text(
+                      '£'+widget.amount.toString(),
+                      style: TextStyle(fontSize: 15)),
+                  )
+                ],
+              )
+            ]),
+          );
   }
 }
