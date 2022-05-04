@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import 'summary_tab.dart';
 
 void main() {
   runApp(const MyApp());

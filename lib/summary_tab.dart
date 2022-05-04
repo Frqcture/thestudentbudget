@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'payment_info_summaries.dart';
 
 class SummaryTab extends StatefulWidget {
-  SummaryTab({Key? key}) : super(key: key);
+  SummaryTab({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+
+  final List<String> paidTo;
+  final List<double> amount;
 
   @override
   State<SummaryTab> createState() => _SummaryTabState();
@@ -38,9 +41,9 @@ class _SummaryTabState extends State<SummaryTab> {
             ],
           ),
         ),
-        PaymentInfoSummary(paidTo: 'JoeMama', amount: 420.69,),
-        PaymentInfoSummary(paidTo: 'James Moore', amount: 44.00,),
-        PaymentInfoSummary(paidTo: 'Paige Robinson', amount: 5000.53),
+        PaymentInfoSummary(paidTo: widget.paidTo[0], amount: widget.amount[0],),
+        PaymentInfoSummary(paidTo: widget.paidTo[1], amount: widget.amount[1],),
+        PaymentInfoSummary(paidTo: widget.paidTo[2], amount: widget.amount[2]),
       ]),
     );
   }

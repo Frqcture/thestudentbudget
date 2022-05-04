@@ -68,9 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         ),
         ),
-        SummaryTab(),
-        SummaryTab(),
-        SummaryTab(),
+        SummaryTab(paidTo: ['Joe', 'Molly','Lorenzo'], amount: [1.23,5.85,10.43],),
+        SummaryTab(paidTo: ['Lorenzo','Molly', 'Joe'], amount: [3.64,8.45,10.00],),
+        SummaryTab(paidTo: ['Molly','Joe','Lorenzo'], amount: [3.88,763.87, 9.01],),
       ],
     )
     ]);

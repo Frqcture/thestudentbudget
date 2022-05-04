@@ -32,7 +32,7 @@ class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
                 ),
                 Container(
                   child: Text(
-                    widget.amount.toString(),
+                    '£'+widget.amount.toString(),
                     style: TextStyle(fontSize: 15)),
                 )
               ],
