@@ -18,9 +18,12 @@ class _NonCategorisedPaymentScreenState extends State<NonCategorisedPaymentScree
       body: Container(
         padding: const EdgeInsets.fromLTRB(15, 25, 15, 25),
         child: Column(children: <Widget>[
-          const Text(
-            'Payments to categorize:',
-            style: TextStyle(fontSize: 20),
+          Container(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+            child: const Text(
+              'Payments to categorize:',
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           Container(
             decoration: BoxDecoration(
@@ -28,7 +31,8 @@ class _NonCategorisedPaymentScreenState extends State<NonCategorisedPaymentScree
               border: Border.all(color: const Color.fromARGB(255, 224, 224, 224))
             ),
               child: Container(
-                margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+                // padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                margin: const EdgeInsets.fromLTRB(15, 12, 15, 10),
                 child: ListView(
                 shrinkWrap: true,
                 children: <Widget>[
@@ -42,4 +46,11 @@ class _NonCategorisedPaymentScreenState extends State<NonCategorisedPaymentScree
       )
     );
   }
+}
+
+class NoCategoryPaymentInfoStore {
+  final String paidTo;
+  final double amount;
+
+  NoCategoryPaymentInfoStore(this.paidTo, this.amount);
 }

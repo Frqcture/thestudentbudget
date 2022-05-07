@@ -56,23 +56,27 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(5),
       child: Column(
         children: <Widget>[
         Container(
           child:Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(widget.paidTo),
-              Text('£'+widget.amount.toString())
+              Text(widget.paidTo, style: TextStyle(fontWeight: FontWeight.bold),),
+              Text('£'+widget.amount.toString(), style: TextStyle(fontWeight: FontWeight.bold))
             ],
           )
         ),
         Container(
           alignment: Alignment.bottomLeft,
-          child: Icon(
-            Icons.abc
+          child: Row(children: const <Widget>[
+            Icon(Icons.abc_outlined),
+            Text(
+              'CATEGORY NAME'
+            )
+          ],)
           ),
-        )
       ],)
     );
   }

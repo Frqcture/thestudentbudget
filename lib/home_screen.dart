@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thestudentbudget/summary_tab.dart';
+import 'package:TheStudentBudget/summary_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
