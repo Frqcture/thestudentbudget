@@ -55,29 +55,65 @@ class NoCategoryPaymentInfo extends StatefulWidget {
 class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(5),
-      child: Column(
-        children: <Widget>[
-        Container(
-          child:Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(widget.paidTo, style: TextStyle(fontWeight: FontWeight.bold),),
-              Text('£'+widget.amount.toString(), style: TextStyle(fontWeight: FontWeight.bold))
-            ],
-          )
-        ),
-        Container(
-          alignment: Alignment.bottomLeft,
-          child: Row(children: const <Widget>[
-            Icon(Icons.abc_outlined),
-            Text(
-              'CATEGORY NAME'
+    return InkWell(
+      onTap: () {
+        showModalBottomSheet(
+            context: context,
+            backgroundColor: Colors.transparent,
+            builder: (BuildContext bc) {
+              return Container(
+                height: SizeConfig.screenHeight * 0.6,
+               
+                child: Padding(
+                  padding: EdgeInsets.only(left: SizeConfig.screenWidth * 0.4),
+                  child: Container(
+                  
+                    child: SingleChildScrollView(
+                      child:
+                        
+                          Padding(
+                        padding: EdgeInsets.only(
+                            top: SizeConfig.blockSizeVertical * 1.5),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            
+                          ],
+                        ),
+                      ),
+                     
+                    ),
+                  ),
+                ),
+              );
+            });
+      },
+      child: Container(
+        padding: EdgeInsets.all(5),
+        child: Column(
+          children: <Widget>[
+          Container(
+            child:Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(widget.paidTo, style: TextStyle(fontWeight: FontWeight.bold),),
+                Text('£'+widget.amount.toString(), style: TextStyle(fontWeight: FontWeight.bold))
+              ],
             )
-          ],)
           ),
-      ],)
+          Container(
+            alignment: Alignment.bottomLeft,
+            child: Row(children: const <Widget>[
+              Icon(Icons.abc_outlined),
+              Text(
+                'CATEGORY NAME'
+              )
+            ],)
+            ),
+        ],)
+      )
     );
   }
 }
