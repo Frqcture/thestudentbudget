@@ -47,10 +47,3 @@ class _NonCategorisedPaymentScreenState extends State<NonCategorisedPaymentScree
     );
   }
 }
-
-class NoCategoryPaymentInfoStore {
-  final String paidTo;
-  final double amount;
-
-  NoCategoryPaymentInfoStore(this.paidTo, this.amount);
-}

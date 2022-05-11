@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class PaymentInfoSummary extends StatefulWidget {
@@ -53,6 +54,9 @@ class NoCategoryPaymentInfo extends StatefulWidget {
 }
 
 class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
+
+  String category = 'Test 1';
+  
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -69,13 +73,23 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
                     style: TextStyle(fontSize: 25),
                   ),
                 ),
-                const ListTile(
+                ListTile(
                   leading: Icon(Icons.car_rental),
-                  title: Text('Car Payments')
+                  title: Text('Car Payments'),
+                  onTap: () {
+                    setState(() {
+                      category = 'Car Payments';
+                    });
+                  },
                 ),
-                const ListTile(
+                ListTile(
                   leading: Icon(Icons.local_grocery_store),
                   title: Text('Shopping'),
+                  onTap: () {
+                    setState(() {
+                      category = 'Shopping';
+                    });
+                  },
                 )
               ]
             );
@@ -97,10 +111,10 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
           ),
           Container(
             alignment: Alignment.bottomLeft,
-            child: Row(children: const <Widget>[
+            child: Row(children: <Widget>[
               Icon(Icons.abc_outlined),
               Text(
-                'CATEGORY NAME'
+                category
               )
             ],)
             ),
