@@ -14,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int userBalance = 1000;
 
+  @override
   Widget build(BuildContext context) {
     return ListView(
     children: <Widget>[
@@ -69,9 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         ),
         ),
-        SummaryTab(paidTo: ['Joe', 'Molly','Lorenzo'], amount: [1.23,5.85,10.43], title: 'To be categorized', nav: const NonCategorisedPaymentScreen(),),
-        SummaryTab(paidTo: ['Lorenzo','Molly', 'Joe'], amount: [3.64,8.45,10.00], title: 'Recent Purchases', nav: const NonCategorisedPaymentScreen()),
-        SummaryTab(paidTo: ['Molly','Joe','Lorenzo'], amount: [3.88,763.87, 9.01], title: 'Misc', nav: const NonCategorisedPaymentScreen()),
+        SummaryTab(paidTo: const ['Joe', 'Molly','Lorenzo'], amount: const [1.23,5.85,10.43], title: 'To be categorized', nav: const NonCategorisedPaymentScreen(),),
+        SummaryTab(paidTo: const ['Lorenzo','Molly', 'Joe'], amount: const [3.64,8.45,10.00], title: 'Recent Purchases', nav: const NonCategorisedPaymentScreen()),
+        SummaryTab(paidTo: const ['Molly','Joe','Lorenzo'], amount: const [3.88,763.87, 9.01], title: 'Misc', nav: const NonCategorisedPaymentScreen()),
       ],
     )
     ]);

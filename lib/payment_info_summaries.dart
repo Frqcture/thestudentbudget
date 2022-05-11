@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PaymentInfoSummary extends StatefulWidget {
-  PaymentInfoSummary({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+  const PaymentInfoSummary({Key? key, required this.paidTo, required this.amount}) : super(key: key);
 
   final String paidTo;
   final double amount;
@@ -27,13 +27,13 @@ class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
                   Container(
                     child: Text(
                       widget.paidTo,
-                      style: TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18),
                       ),
                   ),
                   Container(
                     child: Text(
                       '£'+widget.amount.toString(),
-                      style: TextStyle(fontSize: 15)),
+                      style: const TextStyle(fontSize: 15)),
                   )
                 ],
               )
@@ -43,7 +43,7 @@ class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
 }
 
 class NoCategoryPaymentInfo extends StatefulWidget {
-  NoCategoryPaymentInfo({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+  const NoCategoryPaymentInfo({Key? key, required this.paidTo, required this.amount}) : super(key: key);
 
   final String paidTo;
   final double amount;
@@ -63,7 +63,7 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                   child: const Text(
                     'Change Category',
                     style: TextStyle(fontSize: 25),
@@ -73,7 +73,7 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
                   leading: Icon(Icons.car_rental),
                   title: Text('Car Payments')
                 ),
-                ListTile(
+                const ListTile(
                   leading: Icon(Icons.local_grocery_store),
                   title: Text('Shopping'),
                 )
@@ -83,15 +83,15 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: <Widget>[
           Container(
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(widget.paidTo, style: TextStyle(fontWeight: FontWeight.bold),),
-                Text('£'+widget.amount.toString(), style: TextStyle(fontWeight: FontWeight.bold))
+                Text(widget.paidTo, style: const TextStyle(fontWeight: FontWeight.bold),),
+                Text('£'+widget.amount.toString(), style: const TextStyle(fontWeight: FontWeight.bold))
               ],
             )
           ),

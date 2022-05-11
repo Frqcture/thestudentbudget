@@ -50,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  final tabs = [HomeScreen()];
+  final tabs = [const HomeScreen()];
   int selectedScreen = 0;
 
   @override

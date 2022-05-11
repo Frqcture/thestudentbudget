@@ -35,7 +35,7 @@ class _NonCategorisedPaymentScreenState extends State<NonCategorisedPaymentScree
                 margin: const EdgeInsets.fromLTRB(15, 12, 15, 10),
                 child: ListView(
                 shrinkWrap: true,
-                children: <Widget>[
+                children: const <Widget>[
                   NoCategoryPaymentInfo(paidTo: 'Joe', amount: 123.45,),
                   NoCategoryPaymentInfo(paidTo: 'Joe', amount: 123.45,),
                 ],
