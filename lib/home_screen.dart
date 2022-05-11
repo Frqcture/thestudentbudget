@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:TheStudentBudget/summary_tab.dart';
+import 'non_categorized_payments.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -68,9 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         ),
         ),
-        SummaryTab(paidTo: ['Joe', 'Molly','Lorenzo'], amount: [1.23,5.85,10.43],),
-        SummaryTab(paidTo: ['Lorenzo','Molly', 'Joe'], amount: [3.64,8.45,10.00],),
-        SummaryTab(paidTo: ['Molly','Joe','Lorenzo'], amount: [3.88,763.87, 9.01],),
+        SummaryTab(paidTo: ['Joe', 'Molly','Lorenzo'], amount: [1.23,5.85,10.43], title: 'To be categorized', nav: const NonCategorisedPaymentScreen(),),
+        SummaryTab(paidTo: ['Lorenzo','Molly', 'Joe'], amount: [3.64,8.45,10.00], title: 'Recent Purchases', nav: const NonCategorisedPaymentScreen()),
+        SummaryTab(paidTo: ['Molly','Joe','Lorenzo'], amount: [3.88,763.87, 9.01], title: 'Misc', nav: const NonCategorisedPaymentScreen()),
       ],
     )
     ]);

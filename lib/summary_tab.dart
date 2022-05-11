@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'payment_info_summaries.dart';
 import 'non_categorized_payments.dart';
+import 'recent_purchases.dart';
 
 class SummaryTab extends StatefulWidget {
-  SummaryTab({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+  SummaryTab({Key? key, required this.paidTo, required this.amount, required this.title, required this.nav}) : super(key: key);
 
   final List<String> paidTo;
   final List<double> amount;
+  final String title;
+  final Widget nav;
 
   @override
   State<SummaryTab> createState() => _SummaryTabState();
@@ -38,9 +41,9 @@ class _SummaryTabState extends State<SummaryTab> {
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    child: const  Text(
-                      'TITLE',
-                      style: TextStyle(fontSize: 20,)
+                    child: Text(
+                      widget.title,
+                      style: const TextStyle(fontSize: 20,)
                     ),
                   ),
                 ],

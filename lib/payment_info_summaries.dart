@@ -57,38 +57,30 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        showModalBottomSheet(
-            context: context,
-            backgroundColor: Colors.transparent,
-            builder: (BuildContext bc) {
-              return Container(
-                height: SizeConfig.screenHeight * 0.6,
-               
-                child: Padding(
-                  padding: EdgeInsets.only(left: SizeConfig.screenWidth * 0.4),
-                  child: Container(
-                  
-                    child: SingleChildScrollView(
-                      child:
-                        
-                          Padding(
-                        padding: EdgeInsets.only(
-                            top: SizeConfig.blockSizeVertical * 1.5),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            
-                          ],
-                        ),
-                      ),
-                     
-                    ),
+        showModalBottomSheet(context: context, 
+          builder: (context) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: const Text(
+                    'Change Category',
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
-              );
-            });
+                const ListTile(
+                  leading: Icon(Icons.car_rental),
+                  title: Text('Car Payments')
+                ),
+                ListTile(
+                  leading: Icon(Icons.local_grocery_store),
+                  title: Text('Shopping'),
+                )
+              ]
+            );
+          }
+        );
       },
       child: Container(
         padding: EdgeInsets.all(5),
