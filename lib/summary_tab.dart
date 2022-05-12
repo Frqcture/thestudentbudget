@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'payment_info_summaries.dart';
-import 'non_categorized_payments.dart';
+
 class SummaryTab extends StatefulWidget {
   const SummaryTab({Key? key, required this.paidTo, required this.amount, required this.title, required this.nav}) : super(key: key);
 
