@@ -44,18 +44,18 @@ class _PaymentInfoSummaryState extends State<PaymentInfoSummary> {
 }
 
 class NoCategoryPaymentInfo extends StatefulWidget {
-  const NoCategoryPaymentInfo({Key? key, required this.paidTo, required this.amount}) : super(key: key);
+  NoCategoryPaymentInfo({Key? key, required this.paidTo, required this.amount, required this.category, required this.icon}) : super(key: key);
 
   final String paidTo;
   final double amount;
+  String category;
+  Widget icon;
 
   @override
   State<NoCategoryPaymentInfo> createState() => _NoCategoryPaymentInfoState();
 }
 
 class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
-
-  String category = 'Test 1';
   
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,8 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
                   title: Text('Car Payments'),
                   onTap: () {
                     setState(() {
-                      category = 'Car Payments';
+                      widget.category = 'Car Payments';
+                      widget.icon = Icon(Icons.car_rental);
                     });
                   },
                 ),
@@ -87,7 +88,8 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
                   title: Text('Shopping'),
                   onTap: () {
                     setState(() {
-                      category = 'Shopping';
+                      widget.category = 'Shopping';
+                      widget.icon = Icon(Icons.local_grocery_store);
                     });
                   },
                 )
@@ -112,9 +114,9 @@ class _NoCategoryPaymentInfoState extends State<NoCategoryPaymentInfo> {
           Container(
             alignment: Alignment.bottomLeft,
             child: Row(children: <Widget>[
-              Icon(Icons.abc_outlined),
+              widget.icon,
               Text(
-                category
+                widget.category
               )
             ],)
             ),
