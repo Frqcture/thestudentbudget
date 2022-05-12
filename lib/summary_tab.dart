@@ -26,7 +26,7 @@ class _SummaryTabState extends State<SummaryTab> {
         child: Column(children: <Widget>[
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const NonCategorisedPaymentScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => widget.nav));
             },
             child: Container(
               child: Row(
