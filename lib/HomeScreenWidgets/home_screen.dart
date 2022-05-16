@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thestudentbudget/summary_tab.dart';
+import 'summary_tab.dart';
 import 'non_categorized_payments.dart';
 import 'recent_purchases.dart';
 
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
         ),
         ),
-        const SummaryTab(paidTo: ['Joe', 'Molly','Lorenzo'], amount: [1.23,5.85,10.43], title: 'To be categorized', nav: NonCategorisedPaymentScreen(),),
+        const SummaryTab(paidTo: ["Joe", 'Molly','Lorenzo'], amount: [1.23,5.85,10.43], title: 'To be categorized', nav: NonCategorisedPaymentScreen(),),
         SummaryTab(paidTo: ['Lorenzo','Molly', 'Joe'], amount: [3.64,8.45,10.00], title: 'Recent Purchases', nav: RecentPayments()),
         const SummaryTab(paidTo: ['Molly','Joe','Lorenzo'], amount: [3.88,763.87, 9.01], title: 'Misc', nav: NonCategorisedPaymentScreen()),
       ],
