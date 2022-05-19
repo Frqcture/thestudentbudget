@@ -29,6 +29,13 @@
             {
               "client_id": "712710781374-ud9mq175o3d8ngkua6nv3lebqu5p97f3.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "712710781374-pmabp16ps6tgm7aetsmsd9so01aic0nb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.thestudentbudget"
+              }
             }
           ]
         }

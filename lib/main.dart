@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'HomeScreenWidgets/home_screen.dart';
-import 'package:http/http.dart' as http;
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -60,6 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final tabs = [const HomeScreen()];
   int selectedScreen = 0;
 
+  var db = FirebaseFirestore.instance;
+
+  final user = <String, dynamic>{
+    "Testname":"joemama",
+    "TestNum": 987.65,
+  };
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -76,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: tabs[selectedScreen],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          db.collection("TestCollection").add(user).then((DocumentReference doc) => null);
+        },
         tooltip: 'Create',
         child: const Icon(Icons.add),
       ),
