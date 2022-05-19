@@ -3,6 +3,7 @@ import 'HomeScreenWidgets/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -13,7 +14,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -61,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int selectedScreen = 0;
 
   var db = FirebaseFirestore.instance;
+  var auth = FirebaseAuth.instance;
 
   final user = <String, dynamic>{
     "Testname":"joemama",
