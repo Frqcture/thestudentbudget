@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import '../HomeScreenWidgets/home_screen.dart';
+=======
+>>>>>>> 2a592f9a8c09f278151759e58f7b1c4d48a7b680
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -33,9 +36,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               ElevatedButton(
+<<<<<<< HEAD
                 onPressed: () {
                   const HomeScreen();
                 }, 
+=======
+                onPressed: () {}, 
+>>>>>>> 2a592f9a8c09f278151759e58f7b1c4d48a7b680
                 child: const Text('Login!'))
             ],
           )

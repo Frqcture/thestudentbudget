@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 import 'HomeScreenWidgets/home_screen.dart';
-import 'package:http/http.dart' as http;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'LoginSignupWidgets/login.dart';
 
-void main() {
+void main() async {
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform
+  // );
+
+  // runApp(const MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
+ 
 }
 
 class MyApp extends StatelessWidget {
@@ -54,6 +69,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final tabs = [const HomeScreen()];
   int selectedScreen = 0;
 
+  var db = FirebaseFirestore.instance;
+  var auth = FirebaseAuth.instance;
+
+  final user = <String, dynamic>{
+    "Testname":"joemama",
+    "TestNum": 987.65,
+  };
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -62,86 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('TheStudentBudget'),
-      ),
-      body: Center(
-        child: tabs[selectedScreen],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Create',
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: _buildBottomAppBar()
-    );
-  }
 
-  _buildBottomAppBar() {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      color: Colors.blue,
-      child: IconTheme(
-        data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedScreen = 0;
-                        });
-                      },
-                      icon: const Icon(Icons.abc),
-                    ),
-                  ),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedScreen = 1;
-                        });
-                      },
-                      icon: const Icon(Icons.check_circle),
-                    ),
-                  )
-                ]
-              )
-            ),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedScreen = 2;
-                        });
-                      },
-                      icon: const Icon(Icons.face),
-                    ),
-                  ),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          selectedScreen = 3;
-                        });
-                      },
-                      icon: const Icon(Icons.gamepad),
-                    ),
-                  )
-                ]
-              )
-            )
-          ]
-        )
-      )
-    );
+    return const LoginScreen();
   }
 }
