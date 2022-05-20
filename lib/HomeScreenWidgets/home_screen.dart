@@ -18,7 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-    children: <Widget>[
+      shrinkWrap: true,
+      children: <Widget>[
       Column(
       children: <Widget>[
         Container( 
