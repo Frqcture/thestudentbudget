@@ -87,23 +87,5 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
 
     return const LoginScreen();
-
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: const Text('TheStudentBudget'),
-    //   ),
-    //   body: Center(
-    //     child: tabs[selectedScreen],
-    //   ),
-    //   floatingActionButton: FloatingActionButton(
-    //     onPressed: () {
-    //       db.collection("TestCollection").add(user).then((DocumentReference doc) => null);
-    //     },
-    //     tooltip: 'Create',
-    //     child: const Icon(Icons.add),
-    //   ),
-    //   floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    //   bottomNavigationBar: _buildBottomAppBar()
-    // );
   }
 }
