@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'summary_tab.dart';
 import 'non_categorized_payments.dart';
 import 'recent_purchases.dart';
+import '../firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,6 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
 
   int userBalance = 1000;
+
+    final tabs = [const HomeScreen()];
+  int selectedScreen = 0;
+
+  var db = FirebaseFirestore.instance;
+  var auth = FirebaseAuth.instance;
+
+  final user = <String, dynamic>{
+    "Testname":"joemama",
+    "TestNum": 987.65,
+  };
 
   @override
   Widget build(BuildContext context) {
