@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '../HomeScreenWidgets/home_screen.dart';
-=======
->>>>>>> 2a592f9a8c09f278151759e58f7b1c4d48a7b680
+import '../firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../LoginSignupWidgets/login.dart';
+
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
+
+  var db = FirebaseFirestore.instance;
+  var auth = FirebaseAuth.instance;
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _loginUser = GlobalKey<FormState>();
 
+  final String _emailInput = 'joedavidmoore.jm@gmail.com';
+  final String _pwordInput = 'password';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: <Widget>[
+      body: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(15),
+        child: Column(children: <Widget>[
         Form(
           key: _loginUser,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               TextFormField(
-                //key: _unameInput,
+                //key: _emailInput,
                 decoration: const InputDecoration(
                   hintText: 'Email'
                 ),
@@ -36,18 +47,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               ElevatedButton(
-<<<<<<< HEAD
                 onPressed: () {
-                  const HomeScreen();
+                  //_loginUser.currentState?.save();
+                  FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: _emailInput,
+                    password: _pwordInput,
+                  );
                 }, 
-=======
-                onPressed: () {}, 
->>>>>>> 2a592f9a8c09f278151759e58f7b1c4d48a7b680
                 child: const Text('Login!'))
             ],
           )
           ),
       ],)
+    )
     );
   }
 }
